@@ -1,0 +1,9 @@
+.container {
+    max-width: 200em;
+    margin: 0 auto;
+    float: none;
+}
+
+.titlePane {
+    width: 100%;
+}

@@ -1,0 +1,32 @@
+#+LAYOUT: default
+
+Hello, my name is Cherry!
+
+|they/them|19|
+
+I do independent development as part of a small doujin. This page is
+quickly thrown together because I found that the default page I had
+for my Nginx server for a bit to be boring.
+
+This should just give you a small glimpse of myself.
+
+I just use my Twitter account for content consumption nothing really
+valuable there. I hardly even use it anymore.
+
+
+[[assets/22148.gif]]
+
+*** notable projects
+|pBox|[[https://github.com/ilovecherries/pBox]] / [[https://pbox.iadorecherries.com][instance]] |
+|discord/sbs bridge| [[https://github.com/ilovecherries/discord-sbs-bridge]] / sbs:user/5410|
+|kland|[[https://github.com/ilovecherries/kland]] / [[http://kland.iadorecherries.com][instance]]|
+|e| [[https://github.com/y-ack/e]]|
+|chip-8| [[https://github.com/ilovecherries/chip8]]|
+
+*** favourite
+| *colour* |violet|
+| *language* |nim and lua|
+| *story* |ender's game |
+| *pony* |starlight glimmer / colgate / sweetie belle |
+| *music genre* |dnb|
+

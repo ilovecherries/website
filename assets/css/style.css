@@ -1,0 +1,1268 @@
+/** Created by 12Me21 */
+/****************
+ ** All Things **
+ ****************/
+* {
+	margin: 0;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+html {
+	font-variant-ligatures: none;
+	overflow-wrap: break-word;
+	overflow-wrap: anywhere; /*break-word;*/
+}
+
+/* may need more things here */
+.textItem, .item, .buttonContainer button, .avatar, tbody, img {
+	vertical-align: top;
+}
+
+[hidden] {
+	display: none !important;
+}
+
+/**********
+ ** Flex **
+ **********/
+.flex {
+	display: block;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+}
+.flex-row {
+	display: inline-block;
+	display: -webkit-flex;
+	display: flex;
+}
+.flex > *, .flex-row > * {
+	-webkit-flex-shrink: 0;
+	flex-shrink: 0;
+}
+.grow {
+	-webkit-flex-grow: 1;
+	flex-grow: 1;
+	-webkit-flex-shrink: 1;
+	flex-shrink: 1;
+	-webkit-flex-basis: 0;
+	flex-basis: 0;
+}
+
+.flex-sized {
+	webkit-flex-shrink: 1;
+	flex-shrink: 1;
+}
+
+/*********/
+
+/* all elements with user content, where whitespace should be preserved */
+.pre {
+	white-space: pre-wrap;
+	unicode-bidi: embed;
+}
+
+/***********
+ ** Links **
+ ***********/
+a {
+	text-decoration: none;
+}
+a, a:visited {
+	color: var(--linkcolor);
+}
+a:hover {
+	color: var(--link-hover-color);
+	/*text-decoration: underline;*/
+}
+a:hover .entity-title,
+a.entity-title:hover,
+a[data-static-path]:hover {
+	text-decoration: underline;
+}
+/* todo: make a special link bar class for links that contain other elements and a class for which of those should be underlined */
+/* and make sure normal links are styled correctly too */
+a[data-static-path],
+.entity-title {
+	font-weight: 500;
+}
+
+/* todo: make class for dark bg elements */
+.titlePane a {
+	color: var(--link-invert-color);
+	font-weight: normal;
+}
+.titlePane a:hover {
+	color: var(--link-invert-hover-color);
+}
+
+h1 {
+	font-size: 1.6em;
+}
+
+/**********/
+
+textarea {
+	border-radius: 2px;
+	border: 2px solid #00C8B4;
+	box-shadow: 0.1rem 0.2rem 0.3rem -0.2rem rgba(13,13,13,0.5);
+	max-width: 100%;
+	font-family: roboto, sans-serif;
+	
+	font-size: 0.8em;
+	color: var(--maintxtcolor);
+	background-color: var(--mainbgcolor);
+}
+
+select {
+	font-size: 1em;
+}
+
+sup {vertical-align: super;}
+sub {vertical-align: sub;}
+
+.avatar {
+	height: 1rem; /*default*/
+	border: 1px solid var(--image-border-color);
+	border-radius: 3px;
+	background: var(--avatar-bg);
+}
+
+.ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: pre !important;
+}
+
+.ellipsis * {
+	white-space: pre !important;
+}
+
+time {
+	color: var(--time-color);
+	font-size: 0.9em;
+	vertical-align: baseline;
+}
+
+.rightAlign {
+	float: right;
+}
+
+.markup-root { /* make sure this is before most things */
+	padding: 0.5rem;
+}
+
+#\$categoryDescription.markup-root { /* make sure this is before most things */
+	padding: .75rem 1rem;
+}
+
+body.chatMode .bottomSpacer {
+	display: none;
+}
+
+.username {
+	font-weight: bold;
+	unicode-bidi: embed;
+	white-space: pre-wrap;
+}
+
+input {
+	font-size: 0.8em;
+}
+
+html {
+	background-color: #FEE;
+	font-family: roboto, fontello, sans-serif;
+	position: fixed;
+	color: var(--maintxtcolor);
+}
+
+body {
+	position: fixed;
+	overflow: hidden;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: var(--mainbgcolor);
+	/*height: 100vh;*/ /* @@@ */
+}
+
+.fill {
+	width: 100%;
+	height: 100%;
+}
+
+/*********
+ ** Bar **
+ *********/
+/* These 3 classes handle like 90% of the layout lol */
+.bar { /* contains textitems and items */
+	display: block;
+	overflow: hidden;
+	box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	/* set min-height */
+}
+
+.textItem { /* basically anything within a .bar */
+	max-width: 100%;
+	display: inline;
+	/* set min-height, line-height */
+}
+.item { /* for images and other blocks that can't wrap */
+	display: inline-block;
+	max-width: 100%;
+	/* set height */
+}
+
+.rem1-7 {
+	min-height: 1.7rem;
+	line-height: 1.7rem;
+}
+.rem1-7 .item {
+	height: 1.7rem;
+	line-height: 1.7rem;
+}
+.rem1-7 .textItem {
+	min-height: 1.7rem;
+	line-height: 1.7rem;
+}
+.rem1-7 .avatar {
+	width: 1.7rem;
+}
+.rem1-7 .iconBg {
+	width: 1rem;
+	/*margin-right: 0.2rem;*/
+}
+
+.linkBar.rem1-5 {
+	padding: 0;
+}
+
+.rem1-5 {
+	min-height: 1.5rem;
+	line-height: 1.5rem;
+}
+.rem1-5 .item {
+	height: 1.5rem;
+	line-height: 1.5rem;
+}
+.rem1-5 .textItem {
+	min-height: 1.5rem;
+	line-height: 1.5rem;
+}
+.rem1-5 .avatar {
+	width: 1.5rem;
+}
+.rem1-5 .iconBg {
+	width: 1rem;
+	/*margin-right: 0.2rem;*/
+}
+
+.rem2-3 {
+	min-height: 2.3rem;
+	line-height: 2.3rem;
+}
+.rem2-3 .item {
+	height: 2.3rem;
+	line-height: 2.3rem;
+}
+.rem2-3 .textItem {
+	min-height: 2.3rem;
+	line-height: 2.3rem;
+}
+.rem2-3 .avatar {
+	width: 2.3rem;
+}
+.rem2-3 .iconBg {
+	width: 1.5rem;
+}
+
+/**********************
+ ** Button Container **
+ **********************/
+button {
+	line-height: normal !important;
+	font-size: 0.8em;
+	cursor: pointer;
+	font-family: roboto, sans-serif;
+	
+	border: 1px solid black;
+	border-radius: 0px;
+	padding: 0 0.5rem;
+	
+	background: var(--button-bg);
+}
+.buttonContainer {
+	padding: 1px;
+	display: inline-block;
+}
+.buttonContainer button {
+	margin: 0;
+	height: 100%;
+	overflow-y: hidden;
+	/*
+	padding: 0 0.5rem;
+	background-color: #EEE;
+	border: 2px solid gray;
+	border-style: outset;
+	border-radius: 0px;*/
+/*	
+	padding: 0 0.5rem;
+	background-color: #DDD;
+	border: 2px solid gray;
+	border-color: white #333 #333 white;
+	border-radius: 0px;*/
+}
+
+.buttonContainer > a {
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+}
+button:hover {
+	border-color: var(--button-hover-color);
+}
+
+button[aria-selected="true"] {
+	background: var(--button-selected-bg);
+}
+
+button:active {
+	border-style: inset;
+	background: var(--button-active-bg);
+}
+
+/**********/
+
+html:not(.f-loggedIn) .loggedIn,
+html.f-loggedIn .loggedOut {
+	display: none;
+}
+
+/*************
+ ** Top Bar **
+ *************/
+
+html.f-error .loadBG {
+	background: var(--error-invert-bg);
+}
+
+.pathSeparator {
+	padding: 0 0.2rem;
+}
+
+.pathBar {
+	font-weight: bold;
+	padding: 0 0.2rem;
+	/*box-shadow: inset 0 -2px 3px rgba(0,0,0,0.3);*/
+}
+
+#\$chatContainer {
+	overflow-y: hidden;
+}
+
+.bottomBorder {
+	border-bottom: 1px solid var(--border-color);
+}
+
+.border-list > *:not(:last-child),
+.border-list-2 > * {
+	border-bottom: 1px solid var(--border-color);
+}
+
+/**********
+ ** Tabs **
+ **********/
+tab-list {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+}
+tab-list > button {
+	flex-grow: 1;
+	flex-basis: 0;
+	height: 2rem;
+	vertical-align: top;
+	font-size: 1em;
+	padding: 0;
+}
+
+tab-list > button img.avatar {
+	height: 100%;
+	width: auto;
+}
+
+button[aria-selected="true"] {
+	background-color: gray;
+}
+
+/**********/
+
+html.f-sidebarFile .sidebarUploadingHide,
+html.f-sidebarUploaded .sidebarUploadingHide {
+	display: none;
+}
+
+html.f-sidebarUploaded .sidebarUploadingFile,
+html:not(.f-sidebarFile) .sidebarUploadingFile,
+html:not(.f-sidebarUploaded) .sidebarUploadedFile {
+	display: none;
+}
+
+/****************
+ ** Title Pane **
+ ****************/
+.titlePane {
+	/*border-bottom: 2px solid black;*/
+	background: var(--databarbgcolor);
+	color: var(--databartxtcolor);
+	/*box-shadow: 0 2px 3px rgba(0,0,0,0.3);*/
+	z-index: 10;
+	padding: 1px;
+	/*-webkit-transition: background-color 0.1s ease;
+	transition: background-color 0.1s ease;*/
+}
+
+
+.titlePane .entity-title {
+	font-weight: normal;
+	color: var(--link-invert-color);
+}
+
+.status-idle > .avatar {
+	filter: grayscale(1);
+}
+
+html.f-loading .loadBG {
+	background: var(--loading-invert-bg);
+}
+
+.loadBG {
+	-webkit-transition: background-color 0.1s ease;
+	transition: background-color 0.1s ease;
+}
+
+.titlePane .iconBg {
+	width: 2rem;
+}
+
+.pageTitle {
+	font-weight: normal;
+}
+
+.titlePane .pageTitle .entity-title {
+	color: var(--databartxtcolor);
+	padding-right: 0.5rem;
+}
+
+html:not(.f-canEdit) .canEdit {
+	display: none;
+}
+
+.errorMode .titlePane {
+	color: var(--error-invert-bg);
+	font-family: monospace;
+}
+
+.titlePane > :first-child {
+	min-width: 0.3rem;
+	display: inline-block;
+}
+
+/*******************************
+ ** content+sidebar container **
+ *******************************/
+horizontal-split {
+	display: block;
+	position: relative;
+
+	overflow-x: hidden; /* do we need this anymore? */
+}
+
+.errorPage {
+	padding: 0.2rem;
+	font-family: monospace;
+}
+
+main {
+	height: 100%;
+	/*overflow-y: hidden; /* mmm */
+}
+
+sidebar-container {
+	border-left: 1em solid var(--databarbgcolor);
+	background: var(--mainbgcolor);
+	width: 30vw;
+	min-width: 10vw;
+	z-index: 20;
+	/*box-shadow: -1px 0px 3px rgba(0,0,0,0.3);*/
+}
+
+html:not(.f-sidebar) sidebar-container {
+	display: none;
+}
+
+html.f-sidebar main {
+	overflow: auto;
+}
+
+html:not(.f-sidebar) main {
+	overflow: auto;
+}
+
+/**********
+ ** main **
+ **********/
+main-scrollable {
+	overflow-y: auto;
+	flex-basis: auto;
+	
+	/*padding: 0.5rem;*/
+	/*overflow-y: scroll;*/
+	
+	/*min-height: 300px;
+	height: 300px;*/
+}
+
+/*******************
+ ** Category Pane **
+ *******************/
+.linkBar {
+	/*font-weight: bold;*/
+	display: block;
+	background: var(--mainbgcolor);
+	padding: 0.2rem;
+}
+
+.linkBar:focus {
+	background: var(--bar-bg);
+}
+
+/*********
+ ** Nav **
+ *********/
+.nav {
+	background: var(--light-invert-bg);
+	color: var(--databartxtcolor);
+}
+
+.nav > span {
+	color: var(--databartxtcolor);
+}
+
+/**************
+ ** Userlist **
+ **************/
+.chatPane .userlist {
+	box-shadow: var(--normal-shadow);
+	z-index: 4;
+}
+
+.userlist {
+	background: var(--bar-bg);
+}
+
+/*******************
+ ** Chat Messages **
+ *******************/
+message-block {
+	font-size: 1em;
+	padding: 0.4rem 0.5rem;
+	white-space: pre-wrap;
+	/*border-left-width: 0.5em;
+	border-left-style: solid;
+	border-left-color: rgb(255,153,153);*/
+	clear: both;
+	overflow: auto;
+	display: block;
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box;
+	min-height: 3.5rem;
+}
+
+message-block > time {
+	float: right;
+	font-weight: normal;
+	padding-right: .5em;
+	color: var(--chat-dim-color);
+}
+message-block > img.avatar {
+	display: inline-block;
+	width: 3.5rem;
+	height: 3.5rem;
+	border: none;/*1px solid #777;*/
+	/*background-color: transparent;*/
+	/*background-color: #AAB;*/
+	margin-right: 0.5rem;
+}
+message-block > .username-label {
+	margin-left: 4rem;
+	display: block;
+}
+
+message-contents {
+	display: block;
+	vertical-align: top;
+	overflow: auto;
+}
+
+message-block {
+	position: relative;
+}
+message-block > .avatar {
+	position: absolute;
+}
+message-contents {
+	position: relative;
+	margin-top: 0.2rem;
+}
+
+message-controls {
+	position: absolute;
+	/*margin: 0.2rem 0;*/
+	width: 4rem;
+	overflow: hidden;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
+message-controls:hover + message-part {
+	background: rgba(0,0,0,0.1);
+}
+message-part:focus {
+	background: rgba(0,224,255,0.1);
+	outline: none;
+}
+
+message-part:not(.whatever) {
+	/*margin: 0.2rem 0;*/
+	padding: 0 0.2rem;
+	display: block;
+	/*margin: 0.2rem 0;*/
+	padding-left: 4.2rem;
+	padding-bottom: 0.2rem
+}
+message-part.edited {
+	/* todo: fix this */
+	/* we may just need an extra container for message-parts... */
+	padding-left: 4.1rem;
+	border-left: 0.1rem solid var(--border-color);
+}
+
+message-contents img {
+	max-width: 100%;
+	max-height: 10vh;
+	border: 1px solid var(--image-border-color);
+}
+
+message-part[editing] {
+	background: yellow;
+}
+
+#\$chatTextarea[disabled] {
+	background: silver;
+}
+
+html.f-chatEditing #\$chatTextarea {
+	background: var(--edit-textarea-bg);
+}
+
+html.f-chatEditing .hideWhenEdit {
+	display:none;
+}
+html:not(.f-chatEditing) .showWhenEdit {
+	display:none;
+}
+
+.messageGap {
+	border: 1px dashed gray; /*♥*/
+	margin: 0.3rem 0;
+}
+
+/****************
+ ** Chat Input **
+ ****************/
+
+.chatSend {
+	height:2.5rem;
+}
+
+/*****************
+ ** Editor Pane **
+ *****************/
+.editorPane {
+	-webkit-flex-grow: 1;
+	flex-grow: 1;
+}
+
+#\$editorTextareaPanel {
+	/*overflow-y: hidden;*/
+}
+
+.editorTextarea {
+	position: relative;
+	min-height: 2.5em;
+}
+
+#\$editorTextarea {
+	position: absolute;
+	resize: none;
+	box-sizing: border-box;
+}
+
+/*********/
+
+/* do we even need this */
+.bottomSpacer {
+	height: 1.5rem;
+}
+
+.userPageBox {
+	align-items: flex-start;
+	/*max-height: 40vh;*/
+	height: 100%;
+	overflow: auto;
+	/* todo: make this outside of scroller and have activity list scroll separately*/ /* ??? */
+}
+
+.userPageAvatar {
+	width: 10rem;
+	height: 10rem;
+	display: inline-block;
+	-webkit-flex-shrink: 1;
+	flex-shrink: 1;
+	box-shadow: 2px 2px 5px gray;
+	margin-bottom: 5px;
+}
+
+.userPageBox .pageContents {
+	-webkit-flex-basis: 0;
+	flex-basis: 0;
+}
+
+.userPageContents {
+	-webkit-flex-grow: 1;
+	flex-grow: 1;
+}
+.userPageBox .pageContents {
+	max-height: 100%;
+}
+
+html:not(.f-myUserPage) .myUserPage {
+	display: none;
+}
+
+@media (max-width: 700px) {
+	.userPageBox {
+		-webkit-flex-direction: column;
+		flex-direction: column;
+		max-height: none;
+	}
+	.userPageBox .userPageContents {
+		width: 100%;
+		-webkit-flex-basis: auto;
+		flex-basis: auto;
+	}
+}
+
+/*****************
+ ** Form Tables **
+ *****************/
+
+table.form {
+	border-collapse: collapse;
+}
+
+table.form td {
+	padding: 0;
+}
+table.form th {
+	padding: 0;
+	text-align:right;
+}
+
+table.form input {
+	width: 100%;
+}
+
+/* what are these for? */
+table {
+	border-collapse: collapse;
+}
+th {
+	padding: 0 0.3rem;
+}
+
+/**********
+ ** Page **
+ **********/
+button.voteButton[data-selected][data-vote="g"] {
+	background: linear-gradient(lime, #eee);
+}
+
+button.voteButton[data-selected][data-vote="b"] {
+	background: linear-gradient(red, #eee);
+}
+
+button.voteButton[data-selected][data-vote="o"] {
+	background: linear-gradient(aqua, #eee);
+}
+
+/* TODO FIX */
+/* todo fix more! so this is an issue because vote buttons are now messed up by the button container insertion system, and ummm... something about classes.. ugh*/
+
+/* hecko yo */
+.pageContents {
+	max-width:100%;
+	overflow-x:auto;
+	padding: 1.5em;
+}
+
+#\$pageContents {
+	flex-basis: auto;
+}
+
+.pageInfoPane {
+	background: var(--bar-bg);
+	/*overflow: auto;*/
+	padding: 0 0.3rem;
+	box-shadow: var(--normal-shadow);
+}
+
+/***********
+ ** Files **
+ ***********/
+
+.fileThumbnail {
+	display: inline-block;
+	width: 52px;
+	height: 52px;
+	cursor: pointer;
+}
+
+.fileThumbnail > img {
+	max-width: 50px;
+	max-height: 50px;
+	border: 1px solid black;
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box;
+	vertical-align: top; /* what the fuck */
+}
+
+.fileView {
+	max-width: 100%;
+	max-height: 100%;
+	border: 1px solid black;
+}
+
+.fileViewPane {
+	overflow: auto;
+}
+
+html:not(.f-fileSelected) .fileSelected {
+	display: none;
+}
+
+html:not(.f-fileUploading) .fileUploading {
+	display: none;
+}
+
+/***********
+ ** Icons **
+ ***********/
+.iconBg {
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	/*margin-right: 0.3rem;*/
+	margin-left: 0.1rem;
+}
+
+/************
+ ** Resize **
+ ************/
+.resize {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	cursor: grab;
+	color: var(--databartxtcolor);
+	background: var(--databarbgcolor);
+	height: 1.2em;
+	line-height: 1;
+	overflow: hidden;
+	/*box-shadow: 0 -2px 3px rgba(0,0,0,0.3);*/
+}
+.resize[dragging] {
+	cursor: grabbing;
+}
+
+/*************
+ ** Sidebar **
+ *************/
+#\$sidebarPinnedResize {
+	display: inline-block;
+}
+
+.closeSidebar {
+	display: none;
+}
+
+.closeSidebar button {
+	width: 100%;
+}
+
+#\$sidebarTop {
+	overflow: auto;
+}
+#\$sidebarBottom {
+	overflow: auto;
+}
+
+/**************
+ ** Scroller **
+ **************/
+
+scroll-outer {
+	display: block;
+	height: 100%;
+	overflow-y: scroll;
+}
+
+scroll-inner {
+	display: block;
+}
+
+/* narrow screen: fullscreen sidebar */
+@media (max-width: 700px) {
+	sidebar-container {
+		width: 100% !important;
+	}
+	.closeSidebar {
+		display: block;
+		height: 2.3rem;
+	}
+	html.f-mobileSidebar body > * {
+	}
+	html.f-mobileSidebar sidebar-container {
+		border-left: none;
+		position: fixed;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		right: 0;
+	}
+	html:not(.f-mobileSidebar) sidebar-container {
+		display: none;
+	}
+	main {
+		max-width: 100% !important;
+	}
+	#\$sidebarActivity {
+		max-height: 100vh;
+	}
+}
+/* TODO: margin should be fullscreen mode by default, then disabled with @media (min-width) */
+
+/* for devices with small screens */
+@media (max-width: 700px), (max-height: 500px) {
+	textarea, input {
+		font-size: 100%;
+	}
+	/* make the entire page scroll */
+	/* todo: make chat mode work better here */
+	/*body:not(.pageMode) {
+		position: static;
+		min-height: 100vh;
+		font-size: 0.9em;
+	}
+	body:not(.pageMode) main-scrollable {
+		height: auto !important;
+		-webkit-flex-basis: auto;
+		flex-basis: auto;
+	}
+	html {
+		background-color: transparent;
+	}
+	.editorPreview {
+		-webkit-flex-basis: auto;
+		flex-basis: auto;
+	}
+	.userPageBox {
+		max-height: none;
+	}
+	.inputPane textArea {
+		font-size: 1rem;
+	}*/
+}
+
+.registerBox {
+	padding: 0.3rem 0.5rem;
+}
+
+select {
+	width: 7em;
+}
+
+.registerBox input {
+	/*margin: 1px;*/
+}
+
+input {
+	min-width: 0;
+	max-width: 100%;
+}
+
+.permissionRow > th {
+	padding: 0;
+	text-align: left;
+}
+
+.permissionRow > td {
+	text-align: center;
+	padding: 0;
+}
+
+.half {
+	text-align: center;
+	display: block;
+	line-height: 1.15rem;
+	min-height: 1.15rem;
+}
+
+.half-label {
+	font-weight: bold;
+	/*text-align: right;*/
+}
+
+body.pageMode main-scrollable {
+	height: 100%;
+}
+
+.chatScroller {
+	height: 300px;
+}
+
+.chatPane {
+	overflow-y: auto;
+}
+
+#\$sidebarPinned {
+	width: 100%;
+}
+.wideCell {
+	width: 100%;
+}
+
+.wideCell > a {
+	display: block;
+}
+
+.chatScroller {
+	height: 100vh;
+}
+
+.chatScroller > scroll-inner {
+	padding-bottom: 0.5rem;
+}
+
+html.f-splitView main-scrollable {
+	flex-grow: 0;
+	flex-basis: auto;
+	overflow-y: hidden;
+}
+
+
+sidebar-panel {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.image-box {
+	overflow: hidden;
+	position: relative;
+}
+
+.image-box > img {
+	position: absolute;
+	left: -10000%;
+	right: -10000%;
+	top: -10000%;
+	bottom: -10000%;
+	margin: auto auto;
+	max-width: 100%;
+	max-height: 100%;
+	box-sizing: border-box;
+	border: 1px solid black;
+
+	/*padding: 1px;
+	background: black;
+	border: 5px solid white;*/
+	/*-webkit-transform: scale(1); //this should be the inverse of the max-width/height value (5% -> 20, etc.)
+	transform: scale(1);*/
+}
+
+.image-box-large > img {
+	max-width: 1%;
+	max-height: 1%;
+	-webkit-transform: scale(100);
+	transform: scale(100);
+	border: none;
+}
+
+user-select {
+	display: block;
+}
+
+textarea-container {
+	position: relative;
+	display: block;
+	box-sizing: content-box;
+	border: 2px solid #00C8B4;
+	padding: 5px;
+	overflow: hidden;
+	background: var(--mainbgcolor);
+}
+
+.inputPane {
+	align-items: end;
+}
+
+textarea-container > textarea {
+	resize: none;
+	height: 2.5em;
+	min-height: 2.5em;
+		/*position: absolute;*/
+	box-sizing: content-box;
+	resize: none;
+	width: 100%;
+	border: none;
+	padding: 0;
+	margin: 0;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+textarea-container > textarea:focus {
+	outline-offset: 4px;
+	outline: 2px solid black;
+}
+
+textarea-container, textarea-container > textarea {
+	max-height: 25vh;
+}
+
+.no-select {
+	user-select: none;
+}
+
+.permission-table td {
+	text-align: center;
+}
+
+.permission-users td {
+	text-align: center;
+}
+
+.permission-users th {
+	text-align: right;
+}
+
+#\$pageContents {
+	max-height: 100%;
+}
+
+.split-top {
+	max-height: 100%;
+	
+	overflow-y: scroll;
+
+	height: 40vh;
+	min-height: 2.3rem;
+}
+
+.gallery-inner {
+	margin: 0 auto;
+	position: relative;
+}
+
+.gallery-inner canvas {
+	width: 100%;
+	vertical-align: top; /* but, why? */
+}
+
+.gallery-inner > div {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: var(--bar-bg);
+}
+
+.gallery-title {
+	text-align: center;
+	margin: 0 auto;
+	background: var(--bar-bg);
+}
+
+.ellipsis {
+	text-overflow: ellipsis;
+}
+
+.ellipsis, .ellipsis * {
+	white-space: pre;
+}
+
+.debugMessage {
+	background: var(--bar-bg);
+	padding: 2px 3px;
+}
+
+.linkBar {
+	border-bottom: 1px solid var(--border-color);
+	border-top: 1px solid white;
+	padding: 0.15rem 0.2rem 0.2rem 0.2rem;
+}
+
+activity-users {
+	white-space: pre;
+	overflow-x: visible;
+}
+
+.inputPane {
+	background: var(--bar-bg);
+}
+
+html:not(.f-editorPreview) .editorPreview,
+html.f-editorPreview .editorNotPreview {
+	display: none;
+}
+
+.category-childs {
+	margin-left: 1rem;
+}
+
+.inputPane > * {
+	height: 100%;
+}
+
+.bigAvatar {
+	width: 4.5rem;
+	height: 100%;
+	position: absolute;
+	background-size: cover;
+	background-position-x: center;
+	background-position-y: top;
+	background-repeat: no-repeat;
+	left: 0;
+	top: 0;
+	z-index: -10;
+}
