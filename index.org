@@ -18,7 +18,7 @@ valuable there. I hardly even use it anymore.
 
 *** notable projects
 |pBox|[[https://github.com/ilovecherries/pBox]] / [[https://pbox.iadorecherries.com][instance]] |
-|discord/sbs bridge| [[https://github.com/ilovecherries/discord-sbs-bridge]] / sbs:user/5410|
+|discord/sbs bridge| [[https://github.com/ilovecherries/discord-sbs-bridge]]|
 |kland|[[https://github.com/ilovecherries/kland]] / [[http://kland.iadorecherries.com][instance]]|
 |e| [[https://github.com/y-ack/e]]|
 |chip-8| [[https://github.com/ilovecherries/chip8]]|
